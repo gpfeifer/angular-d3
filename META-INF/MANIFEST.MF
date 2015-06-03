@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jens
+Bundle-SymbolicName: a.jens
+Bundle-Version: 1.0.0.qualifier
+Web-ContextPath: jens
