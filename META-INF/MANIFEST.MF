@@ -4,3 +4,8 @@ Bundle-Name: Jens
 Bundle-SymbolicName: a.jens
 Bundle-Version: 1.0.0.qualifier
 Web-ContextPath: jens
+Import-Package: javax.servlet,
+ javax.servlet.http,
+ org.osgi.framework
+Export-Package: a.jens
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
