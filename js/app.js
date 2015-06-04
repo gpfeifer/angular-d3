@@ -57,8 +57,8 @@ jensApp.directive('jensChart', function() {
 	//	    .tickFormat(d3.format(".2s"));
 
 		// GPF: changed from "body" to element[0]
-			var svg = d3.select("body").append("svg")
-		//var svg = d3.select(element[0]).append("svg")
+		//	var svg = d3.select("body").append("svg")
+		var svg = d3.select(element[0]).append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
 		  .append("g")
