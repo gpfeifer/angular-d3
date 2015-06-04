@@ -47,3 +47,9 @@ steht nun:
 	</div>
 
 
+# git checkout gpf003
+Ein Beispiel wie die Daten von einem Servlet geliefert werden können.
+
+	<div>
+   		<jens-chart csv="data/data-from-Servlet"></jens-chart>
+	</div>
