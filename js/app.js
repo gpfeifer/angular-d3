@@ -64,7 +64,8 @@ jensApp.directive('jensChart', function() {
 		  .append("g")
 		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
-		d3.csv("dataProduct2015.csv", function(error, data) {
+		var csv = scope.csv;
+		d3.csv(csv, function(error, data) {
 		  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
 	
 		  data.forEach(function(d) {
@@ -130,7 +131,9 @@ jensApp.directive('jensChart', function() {
 	}
 	return {
 		link: link,
-		restrict: 'E'
+		restrict: 'E',
+		scope: { csv: '@' }
+			
 	}
 
 });
