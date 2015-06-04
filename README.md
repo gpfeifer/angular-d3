@@ -33,3 +33,17 @@ In stackedChart.html ist weiterhin der Code von Jens. In index.html ist der Java
 	</html>
 
 Das sieht schon ein wenig aufgeräumter aus :-P
+
+# git checkout gpf002
+Hier habe ich ein attribute cvs definiert, so dass man bei der Directive den Dateinamen 
+angeben kann. Um das zu demonstriene gibt es nun eine zweite CSV Datei und in index.html 
+steht nun:
+
+	<div>
+	   <jens-chart csv="dataProduct2014.csv"></jens-chart>
+	</div>
+	<div>
+   		<jens-chart csv="dataProduct2015.csv"></jens-chart>
+	</div>
+
+
