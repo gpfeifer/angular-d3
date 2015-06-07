@@ -205,72 +205,73 @@ jensApp.directive('jensDynChart', function() {
 			if (!data) {
 				return;
 			}
-				  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
-			
-				  data.forEach(function(d) {
-				    var y0 = 0;
-				    d.product = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-				    d.total = d.product[d.product.length - 1].y1;
-				  });
-			
-				  // data.sort(function(a, b) { return b.total - a.total; });
-			
-				  x.domain(data.map(function(d) { return d.date; }));
-				  y.domain([0, d3.max(data, function(d) { return d.total; })]);
-			
-				  svg.append("g")
-				      .attr("class", "x axis")
-				      .attr("transform", "translate(0," + height + ")")
-				      .call(xAxis);
-			
-				  svg.append("g")
-				      .attr("class", "y axis")
-				      .call(yAxis)
-				    .append("text")
-				      .attr("transform", "rotate(-90)")
-				      .attr("y", 6)
-				      .attr("dy", ".71em")
-				      .style("text-anchor", "end")
-				      .text("Requests");
-			
-				  var date = svg.selectAll(".date")
-				      .data(data)
-				    .enter().append("g")
-				      .attr("class", "g")
-				      .attr("transform", function(d) { return "translate(" + x(d.date) + ",0)"; });
-			
-				  date.selectAll("rect")
-				      .data(function(d) { return d.product; })
-				    .enter().append("rect")
-				      .attr("width", x.rangeBand())
-				      .attr("y", function(d) { return y(d.y1); })
-				      .attr("height", function(d) { return y(d.y0) - y(d.y1); })
-				      .style("fill", function(d) { return color(d.name); });
-			
-				  var legend = svg.selectAll(".legend")
-				      .data(color.domain().slice().reverse())
-				    .enter().append("g")
-				      .attr("class", "legend")
-				      .attr("transform", function(d, i) { return "translate(100," + i * 20 + ")"; });
-			
-				  legend.append("rect")
-				      .attr("x", width - 18)
-				      .attr("width", 18)
-				      .attr("height", 18)
-				      .style("fill", color);
-			
-				  legend.append("text")
-				      .attr("x", width - 24)
-				      .attr("y", 9)
-				      .attr("dy", ".35em")
-				      .style("text-anchor", "end")
-				      .text(function(d) { return d; });
-			
-				};
+			color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+		
+			data.forEach(function(d) {
+				var y0 = 0;
+			    d.product = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
+			    d.total = d.product[d.product.length - 1].y1;
+			});
+		
+			// data.sort(function(a, b) { return b.total - a.total; });
+		
+			x.domain(data.map(function(d) { return d.date; }));
+			y.domain([0, d3.max(data, function(d) { return d.total; })]);
+		
+			svg.append("g")
+				.attr("class", "x axis")
+			    .attr("transform", "translate(0," + height + ")")
+			    .call(xAxis);
+		
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+			    .append("text")
+			    .attr("transform", "rotate(-90)")
+			    .attr("y", 6)
+			    .attr("dy", ".71em")
+			    .style("text-anchor", "end")
+			    .text("Requests");
+		
+			var date = svg.selectAll(".date")
+				.data(data)
+			    .enter().append("g")
+			      .attr("class", "g")
+			      .attr("transform", function(d) { return "translate(" + x(d.date) + ",0)"; });
+		
+			date.selectAll("rect")
+				.data(function(d) { return d.product; })
+				.enter().append("rect")
+					.attr("width", x.rangeBand())
+					.attr("y", function(d) { return y(d.y1); })
+					.attr("height", function(d) { return y(d.y0) - y(d.y1); })
+					.style("fill", function(d) { return color(d.name); });
+		
+			var legend = svg.selectAll(".legend")
+				.data(color.domain().slice().reverse())
+			    .enter().append("g")
+			    	.attr("class", "legend")
+			    	.attr("transform", function(d, i) { return "translate(100," + i * 20 + ")"; });
+		
+			legend.append("rect")
+				.attr("x", width - 18)
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", color);
+		
+			legend.append("text")
+				.attr("x", width - 24)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.style("text-anchor", "end")
+				.text(function(d) { return d; });
+		
+		};
 //		var csv = scope.csv;
 //		d3.csv(csv, function(error, data) { createChart(error, data) } );
 		createChart(scope.data)		
 	}
+	
 	return {
 		link: link,
 		restrict: 'E',
