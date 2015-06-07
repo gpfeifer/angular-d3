@@ -53,3 +53,7 @@ Ein Beispiel wie die Daten von einem Servlet geliefert werden können.
 	<div>
    		<jens-chart csv="data/data-from-Servlet"></jens-chart>
 	</div>
+
+
+# git checkout gpf004
+Ein neue directive 'jens-dyn-chart', die die Daten nicht mit d3.csv bekommt, sondern über den Angular Scope. Dies als Vorbereitung um das Ganze etwas dynamischer zu machen.  
