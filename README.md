@@ -56,4 +56,10 @@ Ein Beispiel wie die Daten von einem Servlet geliefert werden können.
 
 
 # git checkout gpf004
-Ein neue directive 'jens-dyn-chart', die die Daten nicht mit d3.csv bekommt, sondern über den Angular Scope. Dies als Vorbereitung um das Ganze etwas dynamischer zu machen.  
+Ein neue directive 'jens-dyn-chart', die die Daten nicht mit d3.csv bekommt, sondern über den Angular Scope. Dies als Vorbereitung um das Ganze etwas dynamischer zu machen.
+
+#git checkout gpf005
+Um hierin zu kommen hat es etwas Zeit gedauert. Ein Problem war, dass dein d3 Javascript Code an data noch was
+drangeflanscht hat - nämlich data.total und data.product.
+Das habe ich geändert. QuickHack: Im scope ist nun schon das aufgeblähte Object.
+Aber watch funktioniert nicht.....  
