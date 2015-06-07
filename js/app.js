@@ -20,6 +20,10 @@ jensApp.controller('DemoCtrl', ['$scope', function($scope){
     	 {"date":"Dez","CompactS":"2000","HSNTSN":"2000","KEinzel":"2000","MGPS_V_7.25.0":"2000","Regio":"2000","Risikofragen":"2000"}
     	];
    
+    $scope.click = function(year) {
+    	alert(year)
+    };
+    
   }]);
 
 
