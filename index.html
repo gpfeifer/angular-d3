@@ -10,11 +10,10 @@
 
 <body ng-app="jensApp">
 <h1>Hallo jens-chart</h1>
-<!-- 
+
 <div>
-   <jens-chart csv="dataProduct2014.csv"></jens-chart>
+   <jens-chart csv="dataProduct2015.csv"></jens-chart>
 </div>
- -->
 
 <div ng-controller="DemoCtrl">
 	<div>
@@ -24,9 +23,12 @@
 		<button ng-click="click('2015')" >
 	  2015
 	</button>
+	<p/>
 	
 	</div>
-   <jens-dyn-chart data="d3Data"></jens-chart>
+	<div>
+   		<jens-dyn-chart data="d3Data"></jens-chart>
+	</div>
 </div>
 
 </body>

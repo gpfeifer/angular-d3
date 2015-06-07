@@ -9,3 +9,4 @@ Import-Package: javax.servlet,
  org.osgi.framework
 Export-Package: a.jens
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: com.csc.dip.json.core;bundle-version="5.1.3"
