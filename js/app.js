@@ -24,27 +24,57 @@ jensApp.controller('DemoCtrl', ['$scope', '$http', '$timeout', function($scope, 
     
     $scope.d3DataX = [{"date":"Jan","CompactS":"1233","HSNTSN":"2342","KEinzel":"988","MGPS_V_7.16.0":"1236","Regio":"1433","Risikofragen":"1423","product":[{"name":"CompactS","y0":0,"y1":1233},{"name":"HSNTSN","y0":1233,"y1":3575},{"name":"KEinzel","y0":3575,"y1":4563},{"name":"MGPS_V_7.16.0","y0":4563,"y1":5799},{"name":"Regio","y0":5799,"y1":7232},{"name":"Risikofragen","y0":7232,"y1":8655}],"total":8655},{"date":"Feb","CompactS":"1293","HSNTSN":"1342","KEinzel":"1588","MGPS_V_7.16.0":"1556","Regio":"1763","Risikofragen":"1223","product":[{"name":"CompactS","y0":0,"y1":1293},{"name":"HSNTSN","y0":1293,"y1":2635},{"name":"KEinzel","y0":2635,"y1":4223},{"name":"MGPS_V_7.16.0","y0":4223,"y1":5779},{"name":"Regio","y0":5779,"y1":7542},{"name":"Risikofragen","y0":7542,"y1":8765}],"total":8765},{"date":"Mar","CompactS":"1573","HSNTSN":"2232","KEinzel":"778","MGPS_V_7.16.0":"1666","Regio":"1233","Risikofragen":"1223","product":[{"name":"CompactS","y0":0,"y1":1573},{"name":"HSNTSN","y0":1573,"y1":3805},{"name":"KEinzel","y0":3805,"y1":4583},{"name":"MGPS_V_7.16.0","y0":4583,"y1":6249},{"name":"Regio","y0":6249,"y1":7482},{"name":"Risikofragen","y0":7482,"y1":8705}],"total":8705},{"date":"Apr","CompactS":"1913","HSNTSN":"2472","KEinzel":"838","MGPS_V_7.16.0":"1886","Regio":"1383","Risikofragen":"1123","product":[{"name":"CompactS","y0":0,"y1":1913},{"name":"HSNTSN","y0":1913,"y1":4385},{"name":"KEinzel","y0":4385,"y1":5223},{"name":"MGPS_V_7.16.0","y0":5223,"y1":7109},{"name":"Regio","y0":7109,"y1":8492},{"name":"Risikofragen","y0":8492,"y1":9615}],"total":9615},{"date":"Mai","CompactS":"1163","HSNTSN":"2952","KEinzel":"948","MGPS_V_7.16.0":"1996","Regio":"1883","Risikofragen":"1423","product":[{"name":"CompactS","y0":0,"y1":1163},{"name":"HSNTSN","y0":1163,"y1":4115},{"name":"KEinzel","y0":4115,"y1":5063},{"name":"MGPS_V_7.16.0","y0":5063,"y1":7059},{"name":"Regio","y0":7059,"y1":8942},{"name":"Risikofragen","y0":8942,"y1":10365}],"total":10365},{"date":"Jun","CompactS":"1343","HSNTSN":"2332","KEinzel":"748","MGPS_V_7.16.0":"1446","Regio":"1483","Risikofragen":"1023","product":[{"name":"CompactS","y0":0,"y1":1343},{"name":"HSNTSN","y0":1343,"y1":3675},{"name":"KEinzel","y0":3675,"y1":4423},{"name":"MGPS_V_7.16.0","y0":4423,"y1":5869},{"name":"Regio","y0":5869,"y1":7352},{"name":"Risikofragen","y0":7352,"y1":8375}],"total":8375},{"date":"Jul","CompactS":"1673","HSNTSN":"2992","KEinzel":"1338","MGPS_V_7.16.0":"1536","Regio":"1183","Risikofragen":"1203","product":[{"name":"CompactS","y0":0,"y1":1673},{"name":"HSNTSN","y0":1673,"y1":4665},{"name":"KEinzel","y0":4665,"y1":6003},{"name":"MGPS_V_7.16.0","y0":6003,"y1":7539},{"name":"Regio","y0":7539,"y1":8722},{"name":"Risikofragen","y0":8722,"y1":9925}],"total":9925},{"date":"Aug","CompactS":"1783","HSNTSN":"2112","KEinzel":"338","MGPS_V_7.16.0":"1776","Regio":"1283","Risikofragen":"1323","product":[{"name":"CompactS","y0":0,"y1":1783},{"name":"HSNTSN","y0":1783,"y1":3895},{"name":"KEinzel","y0":3895,"y1":4233},{"name":"MGPS_V_7.16.0","y0":4233,"y1":6009},{"name":"Regio","y0":6009,"y1":7292},{"name":"Risikofragen","y0":7292,"y1":8615}],"total":8615},{"date":"Sep","CompactS":"1893","HSNTSN":"2002","KEinzel":"688","MGPS_V_7.16.0":"1356","Regio":"1383","Risikofragen":"1523","product":[{"name":"CompactS","y0":0,"y1":1893},{"name":"HSNTSN","y0":1893,"y1":3895},{"name":"KEinzel","y0":3895,"y1":4583},{"name":"MGPS_V_7.16.0","y0":4583,"y1":5939},{"name":"Regio","y0":5939,"y1":7322},{"name":"Risikofragen","y0":7322,"y1":8845}],"total":8845},{"date":"Okt","CompactS":"1363","HSNTSN":"2882","KEinzel":"778","MGPS_V_7.16.0":"1646","Regio":"1783","Risikofragen":"1723","product":[{"name":"CompactS","y0":0,"y1":1363},{"name":"HSNTSN","y0":1363,"y1":4245},{"name":"KEinzel","y0":4245,"y1":5023},{"name":"MGPS_V_7.16.0","y0":5023,"y1":6669},{"name":"Regio","y0":6669,"y1":8452},{"name":"Risikofragen","y0":8452,"y1":10175}],"total":10175},{"date":"Nov","CompactS":"1473","HSNTSN":"2362","KEinzel":"888","MGPS_V_7.16.0":"1246","Regio":"1483","Risikofragen":"1823","product":[{"name":"CompactS","y0":0,"y1":1473},{"name":"HSNTSN","y0":1473,"y1":3835},{"name":"KEinzel","y0":3835,"y1":4723},{"name":"MGPS_V_7.16.0","y0":4723,"y1":5969},{"name":"Regio","y0":5969,"y1":7452},{"name":"Risikofragen","y0":7452,"y1":9275}],"total":9275},{"date":"Dez","CompactS":"1553","HSNTSN":"2862","KEinzel":"948","MGPS_V_7.16.0":"1876","Regio":"1683","Risikofragen":"1923","product":[{"name":"CompactS","y0":0,"y1":1553},{"name":"HSNTSN","y0":1553,"y1":4415},{"name":"KEinzel","y0":4415,"y1":5363},{"name":"MGPS_V_7.16.0","y0":5363,"y1":7239},{"name":"Regio","y0":7239,"y1":8922},{"name":"Risikofragen","y0":8922,"y1":10845}],"total":10845}];
     $scope.d3Data = $scope.d3DataX;
+    $scope.toggle = true;
+    $scope.transform = function(csvResult) {
+    	var result = new Array();
+    	csvResult.forEach(function(entry) {
+    		var arrayElement = new Object();
+    		var productArray = new Array();
+    		var y0 = 0;
+    		var total = 0;
+    		for (var key in entry) {
+    			if (entry.hasOwnProperty(key)) {
+    				if (key == "date") {
+    					arrayElement["date"] = entry[key];
+    				} else {
+    					var productObject = new Object();
+    					productObject["name"] = key;
+    					productObject["y0"] = y0;
+    					var y = parseInt(entry[key]);
+    					productObject["y1"] = y0 + y;
+    					y0 = y0 + y;
+    					total = total + y;
+    					productArray.push(productObject);
+    				}
+    			}
+    		}
+    		arrayElement["product"] = productArray;
+    		arrayElement["total"] = total;
+    		result.push(arrayElement);
+    		
+    	})
+    	return result;
+    }
     $scope.click = function(year) {
+    	
+    	/*    	
     	if (year == "2014") {
     		$scope.d3Data = $scope.d3DataY; 
     	} else {
     		$scope.d3Data = $scope.d3DataX;    		
     	}
-    	/*    	
+    	 */    	
+    	
+    	
     	var request = new Object();
     	request.year = year;
-    	
-    	
     	$http.post('data/version1', request).
     	  success(function(data, status, headers, config) {
-    		  $timeout(function(){
-    			  
-    			  $scope.d3Data = data;  
-    		  });
+    		  // $scope.d3Data = $scope.transform(data);
+    		  $scope.d3Data = data;
     	  }).
     	  error(function(data, status, headers, config) {
     	  });
-    	 */    	
     };
     
   }]);
