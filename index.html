@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/d3/d3.js" charset="utf-8"></script>
+<script src="js/app.js"></script>
+</head>
+<link rel="stylesheet" href="jens.css" type="text/css" media="screen" />
+
+<body ng-app="jensApp">
+<h1>Hallo jens-chart</h1>
+
+<div>
+   <jens-chart csv="dataProduct2015.csv"></jens-chart>
+</div>
+
+<div ng-controller="DemoCtrl">
+	<div>
+	<button ng-click="click('2014')" >
+	  2014
+	</button>
+		<button ng-click="click('2015')" >
+	  2015
+	</button>
+	<p/>
+	
+	</div>
+	<div>
+   		<jens-dyn-chart data="d3Data"></jens-chart>
+	</div>
+</div>
+
+</body>
+</html>
