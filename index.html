@@ -8,14 +8,14 @@
 </head>
 <link rel="stylesheet" href="jens.css" type="text/css" media="screen" />
 
-<body ng-app="jensApp">
-<h1>Hallo jens-chart</h1>
+<body ng-app="chartApp">
+<h1>J-VP/MS Webservice Chart</h1>
 
 <div>
-   <jens-chart csv="dataProduct2015.csv"></jens-chart>
+   <wschart csv="dataProduct2015.csv"></wschart>
 </div>
 
-<div ng-controller="DemoCtrl">
+<div ng-controller="ChartCtrl">
 	<div>
 	<button ng-click="click('2014')" >
 	  2014
@@ -27,7 +27,7 @@
 	
 	</div>
 	<div>
-   		<jens-dyn-chart data="d3Data"></jens-chart>
+   		<ws-dyn-chart data="d3Data"/>
 	</div>
 </div>
 
