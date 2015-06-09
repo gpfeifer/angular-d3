@@ -152,46 +152,40 @@ chartApp.directive('wschart', function() {
 chartApp.directive('wsDynChart', function() {
 
 	function link(scope, element, attr) {
-		var svg = d3.select(element[0]).append("svg");
+		var svgRoot = d3.select(element[0]).append("svg");
 		
-		var margin = {top: 20, right: 100, bottom: 30, left: 40};
+		var margin = {top: 20, right: 100, bottom: 30, left: 50};
 		var width = 960 - margin.left - margin.right;
 		var height = 500 - margin.top - margin.bottom;
 		
+		svgRoot
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom);
+			
+		var content = svgRoot.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 		
 		scope.render = function(data) {
 			if (!data) {
 				return;
 			}
-            svg.selectAll("*").remove();
+            content.selectAll("*").remove();
             
-            var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
-            
+            var x = d3.scale.ordinal().rangeRoundBands([0, width], .1, .2);
             var y = d3.scale.linear().rangeRound([height, 0]);
             
-            
             var xAxis = d3.svg.axis().scale(x).orient("bottom");
-            
             var yAxis = d3.svg.axis().scale(y).orient("left");
             
             x.domain(data.map(function(d) { return d.date; }));
             y.domain([0, d3.max(data, function(d) { return d.total; })]);
-
-
-
-            svg
-            	.attr("width", width + margin.left + margin.right)
-            	.attr("height", height + margin.top + margin.bottom);
-            
-            svg.append("g")
-            	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 		
-			svg.append("g")
+			content.append("g")
 				.attr("class", "x axis")
 			    .attr("transform", "translate(0," + height + ")")
 			    .call(xAxis);
 		
-			svg.append("g")
+			content.append("g")
 				.attr("class", "y axis")
 				.call(yAxis)
 			    .append("text")
@@ -199,14 +193,15 @@ chartApp.directive('wsDynChart', function() {
 			    .attr("y", 6)
 			    .attr("dy", ".71em")
 			    .style("text-anchor", "end")
-			    .text("Requests");
+			    .text("Aufrufe");
 		
-			var date = svg.selectAll(".date")
+			var date = content.selectAll(".date")
 				.data(data)
 			    .enter().append("g")
 			      .attr("class", "g")
-			      .attr("transform", function(d) { return "translate(" + x(d.date) + ",0)"; });
-		
+			      .attr("transform", function(d) {return "translate(" + x(d.date) + ",0)"; });
+			
+			
 			var y0 = 0;
 			date.selectAll("rect")
 				.data(function(d) { return d.product })
@@ -219,7 +214,7 @@ chartApp.directive('wsDynChart', function() {
 					.attr("height", function(d) { return y(d.y0) - y(d.y1); })
 					.style("fill", function(d) { return color(d.name); });
 		
-			var legend = svg.selectAll(".legend")
+			var legend = content.selectAll(".legend")
 				.data(color.domain().slice().reverse())
 			    .enter().append("g")
 			    	.attr("class", "legend")
