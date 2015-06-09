@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/com.csc.dip.json.core_5.1.6.Y20150323-1900.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
