@@ -220,11 +220,7 @@ chartApp.directive('wsDynChart', function() {
 
 		
 			content.selectAll("rect")
-					.on("click", function(d) {    
-						console.log("CLICK ");
-						})                  
 					.on("mouseover", function(d) {   
-						console.log(d);
 						div.transition()        
 							.duration(200)      
 							.style("opacity", .9);      
@@ -233,13 +229,9 @@ chartApp.directive('wsDynChart', function() {
 							.style("top", (d3.event.pageY - 28) + "px");  
 						})                  
 					.on("mouseout", function(d) {       
-						console.log("OUT " + d);
 						div.transition()        
 							.duration(500)      
 							.style("opacity", 0); 
-					})
-					.on("dblclick", function(d) {       
-						console.log("DBL " + d);
 					});
 		
 			var legend = content.selectAll(".legend")
