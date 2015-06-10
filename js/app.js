@@ -164,6 +164,10 @@ chartApp.directive('wsDynChart', function() {
 			
 		var content = svgRoot.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
+		var div = d3.select("body").append("div")   
+			.attr("class", "tooltip")               
+			.style("opacity", 0);
 		
 		scope.render = function(data) {
 			if (!data) {
@@ -213,6 +217,30 @@ chartApp.directive('wsDynChart', function() {
 					})
 					.attr("height", function(d) { return y(d.y0) - y(d.y1); })
 					.style("fill", function(d) { return color(d.name); });
+
+		
+			content.selectAll("rect")
+					.on("click", function(d) {    
+						console.log("CLICK ");
+						})                  
+					.on("mouseover", function(d) {   
+						console.log(d);
+						div.transition()        
+							.duration(200)      
+							.style("opacity", .9);      
+						div.html(d.name + "<br/>" + (d.y1 - d.y0))  
+							.style("left", (d3.event.pageX) + "px")     
+							.style("top", (d3.event.pageY - 28) + "px");  
+						})                  
+					.on("mouseout", function(d) {       
+						console.log("OUT " + d);
+						div.transition()        
+							.duration(500)      
+							.style("opacity", 0); 
+					})
+					.on("dblclick", function(d) {       
+						console.log("DBL " + d);
+					});
 		
 			var legend = content.selectAll(".legend")
 				.data(color.domain().slice().reverse())
