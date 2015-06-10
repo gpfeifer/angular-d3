@@ -238,13 +238,11 @@ chartApp.directive('wsDynChart', function() {
 
 			content.selectAll("[name=bars]")
 			.append("text")
-				.attr("x", 12)
-				.attr("y", function(d){return y(d.total) - 6})
+				.attr("x", function(d) {return (33 - ((d.total + "").length * 4))})
+				.attr("y", function(d) {return y(d.total) - 6})
 				.attr("dy", ".35em")
 				.attr("fill", "steelblue")
 				.text(function(d){
-					console.log(y(d.total));
-					console.log(data);
 					return d.total});
 		
 		
