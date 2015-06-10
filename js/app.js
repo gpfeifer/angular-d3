@@ -203,6 +203,7 @@ chartApp.directive('wsDynChart', function() {
 				.data(data)
 			    .enter().append("g")
 			      .attr("class", "g")
+				  .attr("name", "bars")
 			      .attr("transform", function(d) {return "translate(" + x(d.date) + ",0)"; });
 			
 			
@@ -218,7 +219,7 @@ chartApp.directive('wsDynChart', function() {
 					.attr("height", function(d) { return y(d.y0) - y(d.y1); })
 					.style("fill", function(d) { return color(d.name); });
 
-		
+					
 			content.selectAll("rect")
 					.on("mouseover", function(d) {   
 						div.transition()        
@@ -233,6 +234,19 @@ chartApp.directive('wsDynChart', function() {
 							.duration(500)      
 							.style("opacity", 0); 
 					});
+
+
+			content.selectAll("[name=bars]")
+			.append("text")
+				.attr("x", 12)
+				.attr("y", function(d){return y(d.total) - 6})
+				.attr("dy", ".35em")
+				.attr("fill", "steelblue")
+				.text(function(d){
+					console.log(y(d.total));
+					console.log(data);
+					return d.total});
+		
 		
 			var legend = content.selectAll(".legend")
 				.data(color.domain().slice().reverse())
