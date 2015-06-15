@@ -48,36 +48,71 @@ public class CSVServlet extends HttpServlet {
 		if (jsonValue.isJsonObject()) {
 			JsonObject jsonObject = (JsonObject) jsonValue;
 			JsonValue year = jsonObject.get("year");
+			
+			StringBuffer buffer = new StringBuffer();
+			buffer.append("date,CompactS,HSNTSN,KEinzel,MGPS_V_7.25.0,Regio,Risikofragen");
+			buffer.append("\n");
+			buffer.append("Jan,2000,2000,2000,2000,2000,4000");
+			buffer.append("\n");
+			buffer.append("Feb,2000,2000,2000,2000,2000,2000");
+			buffer.append("\n");
+			buffer.append("Mar,2573,2232,778,2666,2233,2223");
+			buffer.append("\n");
+			buffer.append("Apr,2923,2472,838,2886,2383,2223");
+			buffer.append("\n");
+			buffer.append("Mai,2263,2952,948,2996,2883,2423");
+			buffer.append("\n");
+			buffer.append("Jun,2343,2332,748,2446,2483,2023");
+			buffer.append("\n");
+			buffer.append("Jul,2673,2992,2338,2536,2283,2203");
+			buffer.append("\n");
+			buffer.append("Aug,2783,2222,338,2776,2283,2323");
+			buffer.append("\n");
+			buffer.append("Sep,2893,2002,688,2356,2383,2523");
+			buffer.append("\n");
+			buffer.append("Okt,2363,2882,778,2646,2783,2723");
+			buffer.append("\n");
+			buffer.append("Nov,2473,2362,888,2246,2483,2823");
+			buffer.append("\n");
+			buffer.append("Dez,2000,2000,2000,2000,2000,2000");
+			
+			jsonObject.put("chartData", buffer.toString());
+			jsonObject.put("group", "product");
+			
+			
 			PrintWriter writer = resp.getWriter();
-			if ("2014".equals(year.getString())) {
-				writer.println("date,CompactS,HSNTSN,KEinzel,MGPS_V_7.25.0,Regio,Risikofragen");
-				writer.println("Jan,2000,2000,2000,2000,2000,4000");
-				writer.println("Feb,2000,2000,2000,2000,2000,2000");
-				writer.println("Mar,2573,2232,778,2666,2233,2223");
-				writer.println("Apr,2923,2472,838,2886,2383,2223");
-				writer.println("Mai,2263,2952,948,2996,2883,2423");
-				writer.println("Jun,2343,2332,748,2446,2483,2023");
-				writer.println("Jul,2673,2992,2338,2536,2283,2203");
-				writer.println("Aug,2783,2222,338,2776,2283,2323");
-				writer.println("Sep,2893,2002,688,2356,2383,2523");
-				writer.println("Okt,2363,2882,778,2646,2783,2723");
-				writer.println("Nov,2473,2362,888,2246,2483,2823");
-				writer.println("Dez,2000,2000,2000,2000,2000,2000");
-			} else {
-				writer.println("date,CompactS,HSNTSN,KEinzel,MGPS_V_7.25.0,Regio,Risikofragen");
-				writer.println("Jan,1000,1000,1000,1000,1000,4000");
-				writer.println("Feb,1000,1000,1000,1000,1000,1000");
-				writer.println("Mar,2573,2232,778,2666,2233,2223");
-				writer.println("Apr,2923,2472,838,2886,2383,2223");
-				writer.println("Mai,2263,2952,948,2996,2883,2423");
-				writer.println("Jun,2343,2332,748,2446,2483,1023");
-				writer.println("Jul,2673,2992,2338,2536,2283,2103");
-				writer.println("Aug,2783,2222,338,2776,2283,2323");
-				writer.println("Sep,2893,1002,688,2356,2383,2523");
-				writer.println("Okt,2363,2882,778,2646,2783,2723");
-				writer.println("Nov,2473,2362,888,2246,2483,2823");
-				writer.println("Dez,1000,1000,1000,1000,1000,1000");
-			}
+			writer.write(jsonObject.toString());
+			
+			
+//			if ("2014".equals(year.getString())) {
+//				writer.println("date,CompactS,HSNTSN,KEinzel,MGPS_V_7.25.0,Regio,Risikofragen");
+//				writer.println("Jan,2000,2000,2000,2000,2000,4000");
+//				writer.println("Feb,2000,2000,2000,2000,2000,2000");
+//				writer.println("Mar,2573,2232,778,2666,2233,2223");
+//				writer.println("Apr,2923,2472,838,2886,2383,2223");
+//				writer.println("Mai,2263,2952,948,2996,2883,2423");
+//				writer.println("Jun,2343,2332,748,2446,2483,2023");
+//				writer.println("Jul,2673,2992,2338,2536,2283,2203");
+//				writer.println("Aug,2783,2222,338,2776,2283,2323");
+//				writer.println("Sep,2893,2002,688,2356,2383,2523");
+//				writer.println("Okt,2363,2882,778,2646,2783,2723");
+//				writer.println("Nov,2473,2362,888,2246,2483,2823");
+//				writer.println("Dez,2000,2000,2000,2000,2000,2000");
+//			} else {
+//				writer.println("date,CompactS,HSNTSN,KEinzel,MGPS_V_7.25.0,Regio,Risikofragen");
+//				writer.println("Jan,1000,1000,1000,1000,1000,4000");
+//				writer.println("Feb,1000,1000,1000,1000,1000,1000");
+//				writer.println("Mar,2573,2232,778,2666,2233,2223");
+//				writer.println("Apr,2923,2472,838,2886,2383,2223");
+//				writer.println("Mai,2263,2952,948,2996,2883,2423");
+//				writer.println("Jun,2343,2332,748,2446,2483,1023");
+//				writer.println("Jul,2673,2992,2338,2536,2283,2103");
+//				writer.println("Aug,2783,2222,338,2776,2283,2323");
+//				writer.println("Sep,2893,1002,688,2356,2383,2523");
+//				writer.println("Okt,2363,2882,778,2646,2783,2723");
+//				writer.println("Nov,2473,2362,888,2246,2483,2823");
+//				writer.println("Dez,1000,1000,1000,1000,1000,1000");
+//			}
 			writer.close();
 			
 		}
