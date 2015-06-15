@@ -19,6 +19,10 @@
 
 <div ng-controller="ChartCtrl">
 	<div>
+	 	<select ng-model="selectedItem" 
+          ng-options="item as item.name for item in items"></select>
+	</div>
+	<div>
 	<button ng-click="click('2014')" >
 	  2014
 	</button>
@@ -26,10 +30,25 @@
 	  2015
 	</button>
 	<p/>
+
+	<div>
+	<button ng-click="clickCool('2014')" >
+	  COOL 2014
+	</button>
+		<button ng-click="clickCool('2015')" >
+	  COOL 2015
+	</button>
+	<p/>
 	
 	</div>
-	<div>
+	<div ng-hide="isDonut()">
    		<ws-dyn-chart data="d3Data"/>
+	</div>
+	<div ng-show="isDonut()">
+   		<h1>DONUT</h1>
+	</div>
+	
+	<div>
 	</div>
 </div>
 
